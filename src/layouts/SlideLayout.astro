@@ -1,4 +1,6 @@
 ---
+import '../styles/global.css';
+
 interface Props {
   title?: string;
 }
@@ -13,14 +15,10 @@ const { title = 'Presentación Ejecutiva - Fundación Ayuda Mutua' } = Astro.pro
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Presentación ejecutiva del proyecto de software para Fundación Ayuda Mutua">
   <title>{title}</title>
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`}>
 </head>
 <body>
   <slot />
 </body>
 </html>
-
-<style is:global>
-  @import '../styles/global.css';
-</style>
 
