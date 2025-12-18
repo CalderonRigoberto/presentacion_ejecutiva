@@ -1,0 +1,16 @@
+{
+  "name": "presentacion-ejecutiva-fundacion",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Presentación ejecutiva para el proyecto de software de Fundación Ayuda Mutua",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "astro": "^4.16.0"
+  }
+}
+

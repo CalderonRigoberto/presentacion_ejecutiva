@@ -1,0 +1,132 @@
+---
+interface TimelineItem {
+  phase: string;
+  title: string;
+  duration: string;
+  description: string;
+}
+
+interface Props {
+  items: TimelineItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<div class="timeline">
+  {items.map((item, index) => (
+    <div class={`timeline-item animate-fade-in-up delay-${index + 1}`}>
+      <div class="timeline-marker">
+        <span class="phase-number">{item.phase}</span>
+        <div class="timeline-line"></div>
+      </div>
+      <div class="timeline-content">
+        <div class="timeline-header">
+          <h4>{item.title}</h4>
+          <span class="duration">{item.duration}</span>
+        </div>
+        <p>{item.description}</p>
+      </div>
+    </div>
+  ))}
+</div>
+
+<style>
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    width: 100%;
+    max-width: 800px;
+  }
+  
+  .timeline-item {
+    display: flex;
+    gap: var(--space-5);
+    position: relative;
+  }
+  
+  .timeline-marker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+  }
+  
+  .phase-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: var(--color-accent-glow);
+    border: 2px solid var(--color-accent-primary);
+    border-radius: 50%;
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--color-accent-primary);
+  }
+  
+  .timeline-line {
+    width: 2px;
+    flex: 1;
+    min-height: 40px;
+    background: linear-gradient(to bottom, var(--color-accent-primary), var(--color-border));
+  }
+  
+  .timeline-item:last-child .timeline-line {
+    display: none;
+  }
+  
+  .timeline-content {
+    flex: 1;
+    padding-bottom: var(--space-6);
+  }
+  
+  .timeline-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    margin-bottom: var(--space-2);
+  }
+  
+  .timeline-header h4 {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--color-text-primary);
+  }
+  
+  .duration {
+    display: inline-flex;
+    padding: var(--space-1) var(--space-3);
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-accent-secondary);
+    border-radius: 9999px;
+    font-size: var(--font-size-xs);
+    font-weight: 500;
+    color: var(--color-accent-secondary);
+    white-space: nowrap;
+  }
+  
+  .timeline-content p {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+  }
+  
+  @media (max-width: 768px) {
+    .timeline-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-2);
+    }
+    
+    .phase-number {
+      width: 36px;
+      height: 36px;
+      font-size: var(--font-size-xs);
+    }
+  }
+</style>
+

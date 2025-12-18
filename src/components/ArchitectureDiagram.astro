@@ -1,0 +1,153 @@
+---
+---
+
+<div class="architecture-diagram">
+  <div class="layer layer-presentation animate-fade-in-up delay-1">
+    <div class="layer-icon">🖥️</div>
+    <div class="layer-content">
+      <h4>Capa de Presentación</h4>
+      <p>Interfaz de usuario intuitiva</p>
+      <div class="layer-items">
+        <span>Agenda</span>
+        <span>Formularios</span>
+        <span>Panel</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="connector">
+    <svg width="24" height="40" viewBox="0 0 24 40">
+      <path d="M12 0 L12 40" stroke="var(--color-accent-primary)" stroke-width="2" stroke-dasharray="4 4"/>
+      <path d="M6 34 L12 40 L18 34" stroke="var(--color-accent-primary)" stroke-width="2" fill="none"/>
+    </svg>
+  </div>
+  
+  <div class="layer layer-business animate-fade-in-up delay-2">
+    <div class="layer-icon">⚙️</div>
+    <div class="layer-content">
+      <h4>Capa de Negocio</h4>
+      <p>Lógica de procesamiento</p>
+      <div class="layer-items">
+        <span>Confirmaciones</span>
+        <span>Asignación de fondos</span>
+        <span>Reportes</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="connector">
+    <svg width="24" height="40" viewBox="0 0 24 40">
+      <path d="M12 0 L12 40" stroke="var(--color-accent-primary)" stroke-width="2" stroke-dasharray="4 4"/>
+      <path d="M6 34 L12 40 L18 34" stroke="var(--color-accent-primary)" stroke-width="2" fill="none"/>
+    </svg>
+  </div>
+  
+  <div class="layer layer-data animate-fade-in-up delay-3">
+    <div class="layer-icon">🗄️</div>
+    <div class="layer-content">
+      <h4>Capa de Datos</h4>
+      <p>Base de datos centralizada</p>
+      <div class="layer-items">
+        <span>Donantes</span>
+        <span>Eventos</span>
+        <span>Beneficiarios</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .architecture-diagram {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    width: 100%;
+    max-width: 500px;
+  }
+  
+  .layer {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    width: 100%;
+    padding: var(--space-5);
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    transition: all var(--transition-base);
+  }
+  
+  .layer:hover {
+    border-color: var(--color-accent-primary);
+    box-shadow: var(--shadow-glow);
+    transform: translateX(5px);
+  }
+  
+  .layer-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    background: var(--color-accent-glow);
+    border-radius: var(--radius-lg);
+    font-size: 1.5rem;
+    flex-shrink: 0;
+  }
+  
+  .layer-content {
+    flex: 1;
+  }
+  
+  .layer-content h4 {
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-1);
+  }
+  
+  .layer-content p {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-2);
+  }
+  
+  .layer-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+  
+  .layer-items span {
+    padding: var(--space-1) var(--space-2);
+    background: var(--color-bg-secondary);
+    border-radius: var(--radius-sm);
+    font-size: var(--font-size-xs);
+    color: var(--color-accent-primary);
+  }
+  
+  .connector {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .layer-presentation { border-left: 3px solid #60a5fa; }
+  .layer-business { border-left: 3px solid var(--color-accent-primary); }
+  .layer-data { border-left: 3px solid var(--color-accent-secondary); }
+  
+  @media (max-width: 768px) {
+    .layer {
+      padding: var(--space-4);
+    }
+    
+    .layer-icon {
+      width: 44px;
+      height: 44px;
+      font-size: 1.2rem;
+    }
+  }
+</style>
+
